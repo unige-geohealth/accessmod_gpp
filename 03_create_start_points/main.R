@@ -1,5 +1,5 @@
 library(sf)
-source("./get_borders.R")
+source("/helpers/get_inaccessmod_layer.R")
 source("./get_cluster_points.R")
 source("./get_osm_data.R")
 
@@ -12,7 +12,7 @@ file_border <- "vBorders_pr.shp"
 
 out_dir <- file.path(location_path, location, "facilities")
 out_file <- file.path(out_dir, file_out)
-borders_sf <- get_borders(location, location_path, file_border)
+borders_sf <- get_inaccessmod_layer(location, location_path, file_border)
 bbox <- st_bbox(borders_sf)
 crs <- st_crs(borders_sf)
 

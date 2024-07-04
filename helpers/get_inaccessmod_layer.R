@@ -1,6 +1,7 @@
 library(sf)
+library(terra)
 
-get_borders <- function(location, base, filename) {
+get_inaccessmod_layer <- function(location, base, filename, raster = FALSE) {
   path <- file.path(base, location, "data", "zToAccessMod")
 
   if (!dir.exists(path)) {
@@ -17,7 +18,11 @@ get_borders <- function(location, base, filename) {
 
   path_file <- file.path(dirs[1], filename)
   if (!file.exists(path_file)) {
-    stop(sprintf("vBorders missnig in %s", path_file))
+    stop(sprintf("%s missnig in %s", filename, path_file))
   }
-  st_read(path_file)
+  if (raster) {
+    rast(path_file)
+  } else {
+    st_read(path_file)
+  }
 }
