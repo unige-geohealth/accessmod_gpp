@@ -1,0 +1,612 @@
+#0 building with "mx_builder" instance using docker-container driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 462B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/r-base:latest
+#3 DONE 0.4s
+
+#4 [1/5] FROM docker.io/library/r-base:latest@sha256:b36cbb3a3d17a8e41c7cdc91e1de14bcf2a787d6bf0fed10d3c0fb9bed8a3be5
+#4 resolve docker.io/library/r-base:latest@sha256:b36cbb3a3d17a8e41c7cdc91e1de14bcf2a787d6bf0fed10d3c0fb9bed8a3be5 0.0s done
+#4 CACHED
+
+#5 [2/5] RUN apt-get update && apt-get install -y     build-essential     build-essential     libcurl4-openssl-dev     libssl-dev     libxml2-dev     && rm -rf /var/lib/apt/lists/*
+#5 0.142 Get:2 http://deb.debian.org/debian testing InRelease [169 kB]
+#5 0.190 Get:3 http://deb.debian.org/debian testing-updates InRelease [49.6 kB]
+#5 0.261 Get:4 http://deb.debian.org/debian-security testing-security InRelease [43.5 kB]
+#5 0.277 Get:1 http://deb.debian.org/debian sid InRelease [198 kB]
+#5 0.314 Get:5 http://deb.debian.org/debian testing/main arm64 Packages [9,115 kB]
+#5 0.824 Get:6 http://deb.debian.org/debian sid/main arm64 Packages [9,827 kB]
+#5 2.311 Fetched 19.4 MB in 2s (8,646 kB/s)
+#5 2.311 Reading package lists...
+#5 2.831 Reading package lists...
+#5 3.351 Building dependency tree...
+#5 3.465 Reading state information...
+#5 3.625 build-essential is already the newest version (12.10).
+#5 3.625 build-essential set to manually installed.
+#5 3.625 The following additional packages will be installed:
+#5 3.625   libssl3t64 libxml2 openssl
+#5 3.626 Suggested packages:
+#5 3.626   libcurl4-doc libidn-dev libkrb5-dev libldap2-dev librtmp-dev libssh2-1-dev
+#5 3.626   libssl-doc
+#5 3.695 The following NEW packages will be installed:
+#5 3.695   libcurl4-openssl-dev libssl-dev libxml2 libxml2-dev
+#5 3.696 The following packages will be upgraded:
+#5 3.696   libssl3t64 openssl
+#5 3.737 2 upgraded, 4 newly installed, 0 to remove and 62 not upgraded.
+#5 3.737 Need to get 8,859 kB of archives.
+#5 3.737 After this operation, 22.5 MB of additional disk space will be used.
+#5 3.737 Get:2 http://deb.debian.org/debian testing/main arm64 libxml2 arm64 2.9.14+dfsg-1.3+b3 [624 kB]
+#5 3.797 Get:5 http://deb.debian.org/debian testing/main arm64 libxml2-dev arm64 2.9.14+dfsg-1.3+b3 [745 kB]
+#5 3.840 Get:1 http://deb.debian.org/debian sid/main arm64 libssl3t64 arm64 3.2.2-1 [2,539 kB]
+#5 3.882 Get:3 http://deb.debian.org/debian sid/main arm64 libcurl4-openssl-dev arm64 8.8.0-1 [532 kB]
+#5 3.890 Get:4 http://deb.debian.org/debian sid/main arm64 libssl-dev arm64 3.2.2-1 [3,090 kB]
+#5 3.961 Get:6 http://deb.debian.org/debian sid/main arm64 openssl arm64 3.2.2-1 [1,327 kB]
+#5 4.091 debconf: delaying package configuration, since apt-utils is not installed
+#5 4.118 Fetched 8,859 kB in 0s (30.8 MB/s)
+#5 4.131 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 19209 files and directories currently installed.)
+#5 4.140 Preparing to unpack .../libssl3t64_3.2.2-1_arm64.deb ...
+#5 4.146 Unpacking libssl3t64:arm64 (3.2.2-1) over (3.2.1-3) ...
+#5 4.271 Setting up libssl3t64:arm64 (3.2.2-1) ...
+#5 4.284 Selecting previously unselected package libcurl4-openssl-dev:arm64.
+#5 4.284 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 19209 files and directories currently installed.)
+#5 4.290 Preparing to unpack .../libcurl4-openssl-dev_8.8.0-1_arm64.deb ...
+#5 4.291 Unpacking libcurl4-openssl-dev:arm64 (8.8.0-1) ...
+#5 4.330 Selecting previously unselected package libssl-dev:arm64.
+#5 4.331 Preparing to unpack .../libssl-dev_3.2.2-1_arm64.deb ...
+#5 4.332 Unpacking libssl-dev:arm64 (3.2.2-1) ...
+#5 4.474 Selecting previously unselected package libxml2:arm64.
+#5 4.475 Preparing to unpack .../libxml2_2.9.14+dfsg-1.3+b3_arm64.deb ...
+#5 4.476 Unpacking libxml2:arm64 (2.9.14+dfsg-1.3+b3) ...
+#5 4.516 Selecting previously unselected package libxml2-dev:arm64.
+#5 4.518 Preparing to unpack .../libxml2-dev_2.9.14+dfsg-1.3+b3_arm64.deb ...
+#5 4.519 Unpacking libxml2-dev:arm64 (2.9.14+dfsg-1.3+b3) ...
+#5 4.572 Preparing to unpack .../openssl_3.2.2-1_arm64.deb ...
+#5 4.577 Unpacking openssl (3.2.2-1) over (3.2.1-3) ...
+#5 4.802 Setting up libcurl4-openssl-dev:arm64 (8.8.0-1) ...
+#5 4.805 Setting up libssl-dev:arm64 (3.2.2-1) ...
+#5 4.809 Setting up openssl (3.2.2-1) ...
+#5 4.815 Setting up libxml2:arm64 (2.9.14+dfsg-1.3+b3) ...
+#5 4.818 Setting up libxml2-dev:arm64 (2.9.14+dfsg-1.3+b3) ...
+#5 4.822 Processing triggers for libc-bin (2.38-13) ...
+#5 DONE 4.9s
+
+#6 [3/5] RUN R -e "install.packages('pak')"
+#6 0.084 
+#6 0.085 R version 4.4.1 (2024-06-14) -- "Race for Your Life"
+#6 0.085 Copyright (C) 2024 The R Foundation for Statistical Computing
+#6 0.085 Platform: aarch64-unknown-linux-gnu
+#6 0.085 
+#6 0.085 R is free software and comes with ABSOLUTELY NO WARRANTY.
+#6 0.085 You are welcome to redistribute it under certain conditions.
+#6 0.085 Type 'license()' or 'licence()' for distribution details.
+#6 0.085 
+#6 0.085   Natural language support but running in an English locale
+#6 0.085 
+#6 0.085 R is a collaborative project with many contributors.
+#6 0.085 Type 'contributors()' for more information and
+#6 0.085 'citation()' on how to cite R or R packages in publications.
+#6 0.085 
+#6 0.085 Type 'demo()' for some demos, 'help()' for on-line help, or
+#6 0.085 'help.start()' for an HTML browser interface to help.
+#6 0.085 Type 'q()' to quit R.
+#6 0.085 
+#6 0.138 > install.packages('pak')
+#6 0.140 Installing package into ‘/usr/local/lib/R/site-library’
+#6 0.140 (as ‘lib’ is unspecified)
+#6 0.522 trying URL 'https://cloud.r-project.org/src/contrib/pak_0.7.2.tar.gz'
+#6 0.546 Content type 'application/x-gzip' length 2027490 bytes (1.9 MB)
+#6 0.551 ==================================================
+#6 0.601 downloaded 1.9 MB
+#6 0.601 
+#6 1.105 * installing *source* package ‘pak’ ...
+#6 1.134 ** package ‘pak’ successfully unpacked and MD5 sums checked
+#6 1.134 ** using staged installation
+#6 1.222 ** Running ./configure
+#6 1.342 ** libs
+#6 2.945 Current platform: aarch64-unknown-linux-gnu 
+#6 2.945 Build platform:   
+#6 2.945 Target platform:   
+#6 2.945 
+#6 2.945 Compiling R6 
+#6 2.945 
+#6 2.945 Compiling cli 
+#6 2.945 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 2.945 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/cli/src'
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c ansi.c -o ansi.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c cleancall.c -o cleancall.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c diff.c -o diff.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c errors.c -o errors.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c glue.c -o glue.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c init.c -o init.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c inst.c -o inst.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c keypress-unix.c -o keypress-unix.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c keypress-win.c -o keypress-win.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c keypress.c -o keypress.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c md5.c -o md5.o
+#6 2.945 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c progress-altrep.c -o progress-altrep.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c progress.c -o progress.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c sha1.c -o sha1.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c sha256.c -o sha256.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c thread.c -o thread.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c tty.c -o tty.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c utf8.c -o utf8.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c utils.c -o utils.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c vt.c -o vt.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c vtparse.c -o vtparse.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c vtparse_table.c -o vtparse_table.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c win-utf8.c -o win-utf8.o
+#6 3.775 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -I../inst/include -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c winfiles.c -o winfiles.o
+#6 3.775 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o cli.so ansi.o cleancall.o diff.o errors.o glue.o init.o inst.o keypress-unix.o keypress-win.o keypress.o md5.o progress-altrep.o progress.o sha1.o sha256.o thread.o tty.o utf8.o utils.o vt.o vtparse.o vtparse_table.o win-utf8.o winfiles.o -L/usr/lib/R/lib -lR
+#6 6.820 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/cli/src'
+#6 6.820 installing to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/cli/libs
+#6 6.820 
+#6 6.820 Compiling curl 
+#6 6.820 Found pkg-config cflags and libs!
+#6 6.820 Using PKG_CFLAGS=-I/usr/include/aarch64-linux-gnu 
+#6 6.820 Using PKG_LIBS=-lcurl 
+#6 6.820 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 6.820 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/curl/src'
+#6 6.820 rm -f curl.so callbacks.o curl.o download.o escape.o fetch.o findport.o form.o getdate.o handle.o ieproxy.o init.o interrupt.o multi.o nslookup.o options.o reflist.o split.o ssl.o typechecking.o utils.o version.o winidn.o writer.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c callbacks.c -o callbacks.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c curl.c -o curl.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c download.c -o download.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c escape.c -o escape.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c fetch.c -o fetch.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c findport.c -o findport.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c form.c -o form.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c getdate.c -o getdate.o
+#6 6.820 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c handle.c -o handle.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c ieproxy.c -o ieproxy.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c init.c -o init.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c interrupt.c -o interrupt.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c multi.c -o multi.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c nslookup.c -o nslookup.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c options.c -o options.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c reflist.c -o reflist.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c split.c -o split.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c ssl.c -o ssl.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c typechecking.c -o typechecking.o
+#6 7.377 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c utils.c -o utils.o
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c version.c -o version.o
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c winidn.c -o winidn.o
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG -I/usr/include/aarch64-linux-gnu  -DSTRICT_R_HEADERS -DR_NO_REMAP     -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c writer.c -o writer.o
+#6 8.901 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o curl.so callbacks.o curl.o download.o escape.o fetch.o findport.o form.o getdate.o handle.o ieproxy.o init.o interrupt.o multi.o nslookup.o options.o reflist.o split.o ssl.o typechecking.o utils.o version.o winidn.o writer.o -lcurl -L/usr/lib/R/lib -lR
+#6 8.901 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/curl/src'
+#6 8.901 installing to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/curl/libs
+#6 8.901 
+#6 8.901 Compiling filelock 
+#6 8.901 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 8.901 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/filelock/src'
+#6 8.901 rm -f filelock.so init.o filelock-unix.o locklist.o
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c init.c -o init.o
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c filelock-unix.c -o filelock-unix.o
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c locklist.c -o locklist.o
+#6 8.901 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o filelock.so init.o filelock-unix.o locklist.o -L/usr/lib/R/lib -lR
+#6 8.901 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/filelock/src'
+#6 8.901 installing to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/filelock/libs
+#6 8.901 
+#6 8.901 Compiling jsonlite 
+#6 8.901 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 8.901 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/jsonlite/src'
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c base64.c -o base64.o
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c collapse_array.c -o collapse_array.o
+#6 8.901 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c collapse_object.c -o collapse_object.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c collapse_pretty.c -o collapse_pretty.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c escape_chars.c -o escape_chars.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c integer64_to_na.c -o integer64_to_na.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c is_datelist.c -o is_datelist.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c is_recordlist.c -o is_recordlist.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c is_scalarlist.c -o is_scalarlist.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c modp_numtoa.c -o modp_numtoa.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c null_to_na.c -o null_to_na.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c num_to_char.c -o num_to_char.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c parse.c -o parse.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c prettify.c -o prettify.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c push_parser.c -o push_parser.o
+#6 9.384 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c r-base64.c -o r-base64.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c register.c -o register.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c row_collapse.c -o row_collapse.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c transpose_list.c -o transpose_list.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c validate.c -o validate.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yajl/yajl.c -o yajl/yajl.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yajl/yajl_alloc.c -o yajl/yajl_alloc.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yajl/yajl_buf.c -o yajl/yajl_buf.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yajl/yajl_encode.c -o yajl/yajl_encode.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yajl/yajl_gen.c -o yajl/yajl_gen.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yajl/yajl_lex.c -o yajl/yajl_lex.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yajl/yajl_parser.c -o yajl/yajl_parser.o
+#6 10.06 gcc -I"/usr/share/R/include" -DNDEBUG -Iyajl/api     -fvisibility=hidden  -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yajl/yajl_tree.c -o yajl/yajl_tree.o
+#6 10.06 ar rcs yajl/libstatyajl.a yajl/yajl.o yajl/yajl_alloc.o yajl/yajl_buf.o yajl/yajl_encode.o yajl/yajl_gen.o yajl/yajl_lex.o yajl/yajl_parser.o yajl/yajl_tree.o
+#6 11.58 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o jsonlite.so base64.o collapse_array.o collapse_object.o collapse_pretty.o escape_chars.o integer64_to_na.o is_datelist.o is_recordlist.o is_scalarlist.o modp_numtoa.o null_to_na.o num_to_char.o parse.o prettify.o push_parser.o r-base64.o register.o row_collapse.o transpose_list.o validate.o -Lyajl -lstatyajl -L/usr/lib/R/lib -lR
+#6 11.58 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/jsonlite/src'
+#6 11.58 installing to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/jsonlite/libs
+#6 11.58 in method for ‘asJSON’ with signature ‘"AsIs"’: no definition for class “AsIs”
+#6 11.58 in method for ‘asJSON’ with signature ‘"ITime"’: no definition for class “ITime”
+#6 11.58 in method for ‘asJSON’ with signature ‘"hms"’: no definition for class “hms”
+#6 11.58 in method for ‘asJSON’ with signature ‘"json"’: no definition for class “json”
+#6 11.58 in method for ‘asJSON’ with signature ‘"integer64"’: no definition for class “integer64”
+#6 11.58 in method for ‘asJSON’ with signature ‘"pairlist"’: no definition for class “pairlist”
+#6 11.58 in method for ‘asJSON’ with signature ‘"blob"’: no definition for class “blob”
+#6 11.58 in method for ‘asJSON’ with signature ‘"scalar"’: no definition for class “scalar”
+#6 11.58 in method for ‘asJSON’ with signature ‘"sf"’: no definition for class “sf”
+#6 11.58 in method for ‘asJSON’ with signature ‘"sfc"’: no definition for class “sfc”
+#6 11.58 in method for ‘asJSON’ with signature ‘"vctrs_vctr"’: no definition for class “vctrs_vctr”
+#6 11.58 
+#6 11.58 Compiling lpSolve 
+#6 11.58 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 11.58 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/lpSolve/src'
+#6 11.58 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c colamd.c -o colamd.o
+#6 11.58 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c commonlib.c -o commonlib.o
+#6 11.58 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c hbio.c -o hbio.o
+#6 11.58 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c ini.c -o ini.o
+#6 11.58 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c init.c -o init.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c isfixedvar.c -o isfixedvar.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_Hash.c -o lp_Hash.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_LUSOL.c -o lp_LUSOL.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_MDO.c -o lp_MDO.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_MPS.c -o lp_MPS.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_SOS.c -o lp_SOS.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_crash.c -o lp_crash.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_lib.c -o lp_lib.o
+#6 14.34 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_matrix.c -o lp_matrix.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_mipbb.c -o lp_mipbb.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_params.c -o lp_params.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_presolve.c -o lp_presolve.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_price.c -o lp_price.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_pricePSE.c -o lp_pricePSE.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_report.c -o lp_report.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_rlp.c -o lp_rlp.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_scale.c -o lp_scale.o
+#6 17.60 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_simplex.c -o lp_simplex.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_utils.c -o lp_utils.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lp_wlp.c -o lp_wlp.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lpslink56.c -o lpslink56.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lusol.c -o lusol.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lusolio.c -o lusolio.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c mmio.c -o mmio.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c myblas.c -o myblas.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c sparselib.c -o sparselib.o
+#6 19.69 gcc -I"/usr/share/R/include" -DNDEBUG -I . -DINTEGERTIME -DPARSER_LP -DBUILDING_FOR_R -DYY_NEVER_INTERACTIVE -DUSRDLL -DCLOCKTIME -DRoleIsExternalInvEngine -DINVERSE_ACTIVE=INVERSE_LUSOL -DINLINE=static -DParanoia      -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c yacc_read.c -o yacc_read.o
+#6 21.61 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o lpSolve.so colamd.o commonlib.o hbio.o ini.o init.o isfixedvar.o lp_Hash.o lp_LUSOL.o lp_MDO.o lp_MPS.o lp_SOS.o lp_crash.o lp_lib.o lp_matrix.o lp_mipbb.o lp_params.o lp_presolve.o lp_price.o lp_pricePSE.o lp_report.o lp_rlp.o lp_scale.o lp_simplex.o lp_utils.o lp_wlp.o lpslink56.o lusol.o lusolio.o mmio.o myblas.o sparselib.o yacc_read.o -L/usr/lib/R/lib -lR
+#6 21.61 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/lpSolve/src'
+#6 21.61 installing to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/lpSolve/libs
+#6 21.61 
+#6 21.61 Compiling ps 
+#6 21.61 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 21.61 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/ps/src'
+#6 21.61 gcc -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -Wl,-z,relro -Wall px.c -o px
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c init.c -o init.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c api-common.c -o api-common.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c common.c -o common.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c extra.c -o extra.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c dummy.c -o dummy.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c error-codes.c -o error-codes.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c posix.c -o posix.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c api-posix.c -o api-posix.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c linux.c -o linux.o
+#6 21.61 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c api-linux.c -o api-linux.o
+#6 28.01 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o ps.so init.o api-common.o common.o extra.o dummy.o error-codes.o posix.o api-posix.o linux.o api-linux.o -L/usr/lib/R/lib -lR
+#6 28.01 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/ps/src'
+#6 28.01 installing via 'install.libs.R' to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/ps
+#6 28.01 
+#6 28.01 Compiling zip 
+#6 28.01 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 28.01 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/zip/src'
+#6 28.01 gcc -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  miniz.c zip.c unixutils.c tools/cmdzip.c -o tools/cmdzip
+#6 28.01 gcc -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  miniz.c zip.c unixutils.c tools/cmdunzip.c -o tools/cmdunzip
+#6 28.01 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c init.c -o init.o
+#6 28.01 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c miniz.c -o miniz.o
+#6 28.01 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c rzip.c -o rzip.o
+#6 28.01 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c zip.c -o zip.o
+#6 28.01 gcc -I"/usr/share/R/include" -DNDEBUG      -fvisibility=hidden -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c unixutils.c -o unixutils.o
+#6 28.01 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o zip.so init.o miniz.o rzip.o zip.o unixutils.o -L/usr/lib/R/lib -lR
+#6 28.01 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/zip/src'
+#6 28.01 installing via 'install.libs.R' to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/zip
+#6 28.01 
+#6 28.01 Compiling processx 
+#6 28.01 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 28.01 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/processx/src'
+#6 28.01 gcc -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -Wl,-z,relro -Wall tools/px.c -o tools/px
+#6 28.01 gcc -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -Wl,-z,relro -I../inst/include -Wall tools/sock.c -o tools/sock
+#6 28.01 gcc -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -Wl,-z,relro supervisor/supervisor.c \
+#6 28.01       supervisor/utils.c -o supervisor/supervisor
+#6 28.01 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c base64.c -o base64.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c client.c -o client.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c errors.c -o errors.o
+#6 28.98 gcc -shared -L"/usr/lib/R/lib" -Wl,-z,relro -o client.so base64.o client.o errors.o  \
+#6 28.98 	 -L"/usr/lib/R/lib" -lR
+#6 28.98 if [ -n "" ]; then \
+#6 28.98     echo Removing libR.so dependency from client.so; \
+#6 28.98     patchelf --remove-needed libR.so client.so; \
+#6 28.98 fi
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c init.c -o init.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c poll.c -o poll.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c processx-connection.c -o processx-connection.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c processx-vector.c -o processx-vector.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c create-time.c -o create-time.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c unix/childlist.c -o unix/childlist.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c unix/connection.c -o unix/connection.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c unix/processx.c -o unix/processx.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c unix/sigchld.c -o unix/sigchld.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c unix/utils.c -o unix/utils.o
+#6 28.98 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c unix/named_pipe.c -o unix/named_pipe.o
+#6 42.71 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c cleancall.c -o cleancall.o
+#6 42.71 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o processx.so init.o poll.o errors.o processx-connection.o processx-vector.o create-time.o base64.o unix/childlist.o unix/connection.o unix/processx.o unix/sigchld.o unix/utils.o unix/named_pipe.o cleancall.o -L/usr/lib/R/lib -lR
+#6 42.71 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/processx/src'
+#6 42.71 installing via 'install.libs.R' to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/processx
+#6 42.71 
+#6 42.71 Compiling callr 
+#6 42.71 
+#6 42.71 Compiling desc 
+#6 42.71 
+#6 42.71 Compiling pkgbuild 
+#6 42.71 
+#6 42.71 Compiling pkgcache 
+#6 42.71 using C compiler: ‘gcc (Debian 13.2.0-25) 13.2.0’
+#6 42.71 make[1]: Entering directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/pkgcache/src'
+#6 42.71 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c errors.c -o errors.o
+#6 42.71 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c init.c -o init.o
+#6 42.71 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c lib.c -o lib.o
+#6 42.71 gcc -I"/usr/share/R/include" -DNDEBUG       -fPIC  -g -O2 -ffile-prefix-map=/build/reproducible-path/r-base-4.4.1=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -mbranch-protection=standard -Wdate-time -D_FORTIFY_SOURCE=2  -c winfiles.c -o winfiles.o
+#6 42.71 gcc -shared -L/usr/lib/R/lib -Wl,-z,relro -o pkgcache.so errors.o init.o lib.o winfiles.o -L/usr/lib/R/lib -lR
+#6 42.71 make[1]: Leaving directory '/tmp/RtmputyGUX/R.INSTALL256f601939/pak/src/library/pkgcache/src'
+#6 42.71 installing to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak/library/pkgcache/libs
+#6 42.71 
+#6 42.71 Compiling pkgsearch 
+#6 42.71 
+#6 42.71 Compiling pkgdepends 
+#6 42.71 installing via 'install.libs.R' to /usr/local/lib/R/site-library/00LOCK-pak/00new/pak
+#6 42.71 ** R
+#6 42.73 ** inst
+#6 42.73 ** byte-compile and prepare package for lazy loading
+#6 43.79 ** help
+#6 43.91 *** installing help indices
+#6 43.98 *** copying figures
+#6 43.98 ** building package indices
+#6 44.14 ** testing if installed package can be loaded from temporary location
+#6 44.25 ** checking absolute paths in shared objects and dynamic libraries
+#6 44.26 ** testing if installed package can be loaded from final location
+#6 44.41 ** testing if installed package keeps a record of temporary installation path
+#6 44.42 * DONE (pak)
+#6 44.44 
+#6 44.44 The downloaded source packages are in
+#6 44.44 	‘/tmp/RtmpFQnsGc/downloaded_packages’
+#6 44.44 > 
+#6 44.44 > 
+#6 DONE 44.5s
+
+#7 [4/5] RUN R -e "pak::pkg_install(c('dplyr','sf','doParallel','foreach','snow','terra'))"
+#7 0.168 
+#7 0.168 R version 4.4.1 (2024-06-14) -- "Race for Your Life"
+#7 0.168 Copyright (C) 2024 The R Foundation for Statistical Computing
+#7 0.168 Platform: aarch64-unknown-linux-gnu
+#7 0.168 
+#7 0.168 R is free software and comes with ABSOLUTELY NO WARRANTY.
+#7 0.168 You are welcome to redistribute it under certain conditions.
+#7 0.168 Type 'license()' or 'licence()' for distribution details.
+#7 0.168 
+#7 0.168   Natural language support but running in an English locale
+#7 0.168 
+#7 0.168 R is a collaborative project with many contributors.
+#7 0.168 Type 'contributors()' for more information and
+#7 0.168 'citation()' on how to cite R or R packages in publications.
+#7 0.168 
+#7 0.168 Type 'demo()' for some demos, 'help()' for on-line help, or
+#7 0.168 'help.start()' for an HTML browser interface to help.
+#7 0.168 Type 'q()' to quit R.
+#7 0.168 
+#7 0.223 > pak::pkg_install(c('dplyr','sf','doParallel','foreach','snow','terra'))
+#7 1.092 
+#7 1.634 ✔ Updated metadata database: 2.94 MB in 8 files.
+#7 1.635 
+#7 1.635 ℹ Updating metadata database
+#7 3.931 ✔ Updating metadata database ... done
+#7 3.931 
+#7 4.412  
+#7 4.415 → Will install 30 packages.
+#7 4.423 → Will download 30 CRAN packages (20.15 MB).
+#7 4.427 + classInt     0.4-10 [bld][cmp][dl] (440.27 kB)
+#7 4.427 + cli          3.6.3  [bld][cmp][dl] (569.77 kB)
+#7 4.427 + DBI          1.2.3  [bld][dl] (1.13 MB)
+#7 4.427 + doParallel   1.0.17 [bld][dl] (164.25 kB)
+#7 4.427 + dplyr        1.1.4  [bld][cmp][dl] (1.21 MB)
+#7 4.427 + e1071        1.7-14 [bld][cmp][dl] (326.38 kB)
+#7 4.427 + fansi        1.0.6  [bld][cmp][dl] (482.48 kB)
+#7 4.427 + foreach      1.5.2  [bld][dl] (89.76 kB)
+#7 4.427 + generics     0.1.3  [bld][dl] (172.20 kB)
+#7 4.427 + glue         1.7.0  [bld][cmp][dl] (105.42 kB)
+#7 4.427 + iterators    1.0.14 [bld][dl] (300.27 kB)
+#7 4.427 + lifecycle    1.0.4  [bld][dl] (107.66 kB)
+#7 4.427 + magrittr     2.0.3  [bld][cmp][dl] (267.07 kB)
+#7 4.427 + pillar       1.9.0  [bld][dl] (444.53 kB)
+#7 4.427 + pkgconfig    2.0.3  [bld][dl] (6.08 kB)
+#7 4.427 + proxy        0.4-27 [bld][cmp][dl] (74.62 kB)
+#7 4.427 + R6           2.5.1  [bld][dl] (63.42 kB)
+#7 4.427 + Rcpp         1.0.12 [bld][cmp][dl] (3.43 MB)
+#7 4.427 + rlang        1.1.4  [bld][cmp][dl] (763.76 kB)
+#7 4.427 + s2           1.1.6  [bld][cmp][dl] (2.38 MB) + ✔ libssl-dev
+#7 4.427 + sf           1.0-16 [bld][cmp][dl] (3.49 MB) + ✖ libgdal-dev, ✖ gdal-bin, ✖ libgeos-dev, ✖ libproj-dev, ✖ libsqlite3-dev
+#7 4.427 + snow         0.4-4  [bld][dl] (20.46 kB)
+#7 4.427 + terra        1.7-78 [bld][cmp][dl] (836.57 kB) + ✖ libgdal-dev, ✖ gdal-bin, ✖ libgeos-dev, ✖ libproj-dev, ✖ libsqlite3-dev
+#7 4.427 + tibble       3.2.1  [bld][cmp][dl] (565.98 kB)
+#7 4.427 + tidyselect   1.2.1  [bld][cmp][dl] (103.59 kB)
+#7 4.427 + units        0.8-5  [bld][cmp][dl] (247.97 kB) + ✖ libudunits2-dev
+#7 4.427 + utf8         1.2.4  [bld][cmp][dl] (241.08 kB)
+#7 4.427 + vctrs        0.6.5  [bld][cmp][dl] (969.07 kB)
+#7 4.427 + withr        3.0.0  [bld][dl] (107.68 kB)
+#7 4.427 + wk           0.9.1  [bld][cmp][dl] (1.04 MB)
+#7 4.431 → Will install 6 system packages:
+#7 4.432 + gdal-bin         - sf, terra
+#7 4.432 + libgdal-dev      - sf, terra
+#7 4.432 + libgeos-dev      - sf, terra
+#7 4.432 + libproj-dev      - sf, terra
+#7 4.432 + libsqlite3-dev   - sf, terra
+#7 4.432 + libudunits2-dev  - units    
+#7 4.541 ℹ Getting 30 pkgs (20.15 MB)
+#7 4.943 ✔ Got cli 3.6.3 (source) (568.16 kB)
+#7 4.969 ✔ Got fansi 1.0.6 (source) (482.48 kB)
+#7 5.046 ✔ Got dplyr 1.1.4 (source) (1.21 MB)
+#7 5.077 ✔ Got magrittr 2.0.3 (source) (267.07 kB)
+#7 5.083 ✔ Got R6 2.5.1 (source) (63.42 kB)
+#7 5.193 ✔ Got proxy 0.4-27 (source) (74.62 kB)
+#7 5.267 ✔ Got tidyselect 1.2.1 (source) (103.59 kB)
+#7 5.279 ✔ Got withr 3.0.0 (source) (107.68 kB)
+#7 5.414 ✔ Got foreach 1.5.2 (source) (89.76 kB)
+#7 5.467 ✔ Got sf 1.0-16 (source) (3.49 MB)
+#7 5.525 ✔ Got terra 1.7-78 (source) (842.88 kB)
+#7 5.547 ✔ Got utf8 1.2.4 (source) (241.08 kB)
+#7 5.569 ✔ Got classInt 0.4-10 (source) (440.27 kB)
+#7 5.685 ✔ Got glue 1.7.0 (source) (105.42 kB)
+#7 5.755 ✔ Got snow 0.4-4 (source) (20.46 kB)
+#7 5.761 ✔ Got tibble 3.2.1 (source) (565.98 kB)
+#7 5.831 ✔ Got units 0.8-5 (source) (247.97 kB)
+#7 5.836 ✔ Got pillar 1.9.0 (source) (444.53 kB)
+#7 5.864 ✔ Got e1071 1.7-14 (source) (326.38 kB)
+#7 5.877 ✔ Got pkgconfig 2.0.3 (source) (6.08 kB)
+#7 5.906 ✔ Got lifecycle 1.0.4 (source) (107.66 kB)
+#7 6.125 ✔ Got doParallel 1.0.17 (source) (164.25 kB)
+#7 6.131 ✔ Got rlang 1.1.4 (source) (767.04 kB)
+#7 6.147 ✔ Got Rcpp 1.0.12 (source) (3.43 MB)
+#7 6.153 ✔ Got DBI 1.2.3 (source) (1.14 MB)
+#7 6.172 ✔ Got s2 1.1.6 (source) (2.38 MB)
+#7 6.200 ✔ Got vctrs 0.6.5 (source) (969.07 kB)
+#7 6.220 ✔ Got generics 0.1.3 (source) (172.20 kB)
+#7 6.226 ✔ Got iterators 1.0.14 (source) (300.27 kB)
+#7 6.233 ✔ Got wk 0.9.1 (source) (1.04 MB)
+#7 6.249 ℹ Installing system requirements
+#7 6.252 ℹ Executing `sh -c apt-get -y update`
+#7 8.634 ℹ Executing `sh -c apt-get -y install libgdal-dev gdal-bin libgeos-dev libproj-dev libsqlite3-dev libudunits2-dev`
+#7 29.86 ℹ Building cli 3.6.3
+#7 30.09 ℹ Building fansi 1.0.6
+#7 30.17 ℹ Building generics 0.1.3
+#7 30.26 ℹ Building glue 1.7.0
+#7 30.31 ℹ Building magrittr 2.0.3
+#7 30.42 ℹ Building pkgconfig 2.0.3
+#7 30.46 ℹ Building R6 2.5.1
+#7 30.51 ℹ Building rlang 1.1.4
+#7 30.95 ℹ Building utf8 1.2.4
+#7 31.13 ℹ Building withr 3.0.0
+#7 31.70 ✔ Built generics 0.1.3 (1.4s)
+#7 31.73 ℹ Building DBI 1.2.3
+#7 31.92 ✔ Built pkgconfig 2.0.3 (1.5s)
+#7 31.94 ✔ Built R6 2.5.1 (1.4s)
+#7 31.97 ℹ Building proxy 0.4-27
+#7 32.01 ✔ Built magrittr 2.0.3 (1.6s)
+#7 32.02 ℹ Building Rcpp 1.0.12
+#7 32.37 ✔ Built glue 1.7.0 (2.1s)
+#7 32.42 ℹ Building wk 0.9.1
+#7 32.56 ℹ Building iterators 1.0.14
+#7 32.86 ✔ Built withr 3.0.0 (1.5s)
+#7 32.92 ℹ Building snow 0.4-4
+#7 33.93 ✔ Built iterators 1.0.14 (1.3s)
+#7 34.05 ✔ Installed generics 0.1.3  (43ms)
+#7 34.18 ✔ Installed glue 1.7.0  (88ms)
+#7 34.25 ✔ Built snow 0.4-4 (1.3s)
+#7 34.31 ✔ Installed magrittr 2.0.3  (91ms)
+#7 34.35 ✔ Installed pkgconfig 2.0.3  (75ms)
+#7 34.37 ✔ Built proxy 0.4-27 (2.4s)
+#7 34.40 ✔ Installed R6 2.5.1  (63ms)
+#7 34.51 ✔ Installed withr 3.0.0  (140ms)
+#7 34.55 ✔ Installed proxy 0.4-27  (126ms)
+#7 34.56 ℹ Building e1071 1.7-14
+#7 34.74 ✔ Installed iterators 1.0.14  (142ms)
+#7 34.75 ℹ Building foreach 1.5.2
+#7 34.80 ✔ Built fansi 1.0.6 (4.6s)
+#7 34.92 ✔ Installed fansi 1.0.6  (62ms)
+#7 34.97 ✔ Installed snow 0.4-4  (102ms)
+#7 35.26 ✔ Built DBI 1.2.3 (3.3s)
+#7 35.29 ✔ Built utf8 1.2.4 (4.2s)
+#7 35.33 ✔ Installed DBI 1.2.3  (42ms)
+#7 35.35 ✔ Installed utf8 1.2.4  (36ms)
+#7 35.78 ✔ Built foreach 1.5.2 (987ms)
+#7 35.85 ✔ Installed foreach 1.5.2  (16ms)
+#7 35.85 ℹ Building doParallel 1.0.17
+#7 36.68 ✔ Built doParallel 1.0.17 (793ms)
+#7 36.72 ✔ Installed doParallel 1.0.17  (16ms)
+#7 38.20 ✔ Built cli 3.6.3 (8.1s)
+#7 38.25 ✔ Installed cli 3.6.3  (28ms)
+#7 38.28 ✔ Built e1071 1.7-14 (3.7s)
+#7 38.32 ✔ Installed e1071 1.7-14  (20ms)
+#7 38.33 ℹ Building classInt 0.4-10
+#7 39.38 ✔ Built classInt 0.4-10 (1s)
+#7 39.47 ✔ Installed classInt 0.4-10  (52ms)
+#7 41.43 ✔ Built wk 0.9.1 (8.9s)
+#7 41.49 ✔ Installed wk 0.9.1  (36ms)
+#7 41.55 ✔ Built rlang 1.1.4 (10.6s)
+#7 41.64 ✔ Installed rlang 1.1.4  (44ms)
+#7 41.65 ℹ Building lifecycle 1.0.4
+#7 42.63 ✔ Built lifecycle 1.0.4 (940ms)
+#7 42.68 ✔ Installed lifecycle 1.0.4  (14ms)
+#7 42.69 ℹ Building vctrs 0.6.5
+#7 52.24 ✔ Built Rcpp 1.0.12 (19.9s)
+#7 52.35 ✔ Installed Rcpp 1.0.12  (85ms)
+#7 52.36 ℹ Building s2 1.1.6
+#7 52.68 ℹ Building units 0.8-5
+#7 52.87 ℹ Building terra 1.7-78
+#7 54.74 ✔ Built vctrs 0.6.5 (11.9s)
+#7 54.82 ✔ Installed vctrs 0.6.5  (43ms)
+#7 54.84 ℹ Building pillar 1.9.0
+#7 54.96 ℹ Building tidyselect 1.2.1
+#7 56.34 ✔ Built tidyselect 1.2.1 (1.3s)
+#7 56.38 ✔ Installed tidyselect 1.2.1  (16ms)
+#7 57.29 ✔ Built pillar 1.9.0 (2.4s)
+#7 57.34 ✔ Installed pillar 1.9.0  (23ms)
+#7 57.34 ℹ Building tibble 3.2.1
+#7 59.46 ✔ Built tibble 3.2.1 (2s)
+#7 59.51 ✔ Installed tibble 3.2.1  (25ms)
+#7 59.51 ℹ Building dplyr 1.1.4
+#7 60.77 ✔ Built units 0.8-5 (8s)
+#7 60.83 ✔ Installed units 0.8-5  (31ms)
+#7 65.80 ✔ Built dplyr 1.1.4 (6.1s)
+#7 65.86 ✔ Installed dplyr 1.1.4  (31ms)
+#7 213.6 ✔ Built s2 1.1.6 (2m 41s)
+#7 214.0 ✔ Installed s2 1.1.6  (341ms)
+#7 214.0 ℹ Building sf 1.0-16
+#7 253.0 ✔ Built terra 1.7-78 (3m 19.9s)
+#7 253.5 ✔ Installed terra 1.7-78  (486ms)
+#7 277.7 ✔ Built sf 1.0-16 (1m 3.5s)
+#7 277.9 ✔ Installed sf 1.0-16  (147ms)
+#7 277.9 ✔ 6 pkgs + 28 deps: kept 4, added 30, dld 30 (20.16 MB) [4m 37.6s]
+#7 277.9 > 
+#7 277.9 > 
+#7 DONE 278.0s
+
+#8 [5/5] WORKDIR /app
+#8 DONE 0.1s
+
+#9 exporting to oci image format
+#9 exporting layers
+#9 exporting layers 27.7s done
+#9 exporting manifest sha256:96732f2395af3d49152d21b1e141c6bc654ad7bc7f39b243fa2f4e40b059739c
+#9 exporting manifest sha256:96732f2395af3d49152d21b1e141c6bc654ad7bc7f39b243fa2f4e40b059739c done
+#9 exporting config sha256:88278de6a0bae26151ce7425f17af779811f4b5d53c4d2b19315cccbb100d9f1 done
+#9 sending tarball
+#9 ...
+
+#10 importing to docker
+#10 loading layer d66203ebb6ea 131.07kB / 11.97MB
+#10 loading layer 83b6770c5032 65.54kB / 5.84MB
+#10 loading layer 05bc255e86b7 557.06kB / 527.29MB
+#10 loading layer 05bc255e86b7 270.17MB / 527.29MB 2.0s
+#10 loading layer 05bc255e86b7 308.05MB / 527.29MB 4.2s
+#10 loading layer 05bc255e86b7 349.27MB / 527.29MB 6.2s
+#10 loading layer 05bc255e86b7 466.26MB / 527.29MB 8.3s
+#10 loading layer b737ad34738a 99B / 99B
+#10 loading layer d66203ebb6ea 131.07kB / 11.97MB 9.8s done
+#10 loading layer 83b6770c5032 65.54kB / 5.84MB 9.6s done
+#10 loading layer 05bc255e86b7 466.26MB / 527.29MB 9.4s done
+#10 loading layer b737ad34738a 99B / 99B 0.1s done
+#10 DONE 9.8s
+
+#9 exporting to oci image format
+#9 sending tarball 17.3s done
+#9 DONE 45.0s
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview
