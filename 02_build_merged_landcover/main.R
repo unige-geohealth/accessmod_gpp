@@ -59,8 +59,6 @@ landcover_merged <- merge_landcover(
   water_polygons = water_polygons
 )
 
-browser()
-
 writeRaster(
   landcover_merged, out_path,
   overwrite = TRUE
