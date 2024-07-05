@@ -50,5 +50,11 @@ rsconnect/
 
 
 # data
-
 shared/location
+shared/dbgrass
+shared/cache
+shared/logs
+
+.gpp_location
+_archives
+

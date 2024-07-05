@@ -1,15 +1,9 @@
 {
   "timestamp": "2024-07-04 15:43:40",
   "analysis": "amTravelTimeAnalysis",
-  "mapset": "bern",
-  "location": "bern",
-  "output": [
-    "rSpeed__pr",
-    "rFriction__pr",
-    "rTravelTime__pr",
-    "rNearest__pr",
-    "lAnalysisParameters__pr"
-  ],
+  "mapset": "project_gpp_default",
+  "location": "project_gpp_default",
+  "output": ["rSpeed__pr", "rTravelTime__pr", "rNearest__pr"],
   "editable": [
     {
       "key": "typeAnalysis",
@@ -90,7 +84,7 @@
     "outputNearest": "rNearest__pr",
     "typeAnalysis": "anisotropic",
     "knightMove": false,
-    "addNearest": false,
+    "addNearest": true,
     "joinField": "cat",
     "towardsFacilities": true,
     "maxTravelTime": 120,

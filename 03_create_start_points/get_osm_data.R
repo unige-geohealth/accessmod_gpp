@@ -6,7 +6,7 @@ library(purrr)
 get_osm_data <- function(bbox) {
   bbox <- st_bbox(st_transform(st_as_sfc(bbox), 4326))
 
-  query_park <- opq(bbox, osm_types = c("way", "relation")) %>%
+  query_park <- opq(bbox,timeout=60*5, osm_types = c("way", "relation")) %>%
     add_osm_features(features = list(
       "leisure" = "park",
       "leisure" = "nature_reserve",

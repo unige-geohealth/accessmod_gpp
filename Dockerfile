@@ -21,6 +21,6 @@ ENV R_PACKAGES="\
 RUN R -e "install.packages('pak')"
 RUN R -e "pak::pkg_install(c(${R_PACKAGES}))"
 
-WORKDIR /app
+WORKDIR /run
 
 CMD ["R"]

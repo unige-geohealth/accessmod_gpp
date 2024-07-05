@@ -1,8 +1,9 @@
 library(dplyr) # mising for osm
 library(sf) # if not loaded here, initiat_project fails
 library(inAccessMod)
+source("/helpers/get_location.R")
 
-location <- "Bern"
+location <- get_location() 
 wd <- normalizePath("/data/location/")
 
 # iso3string <- "CHE"

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Area Access: Zurich, Milan, and Dubai (Percentage)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .line {
+            fill: none;
+            stroke-width: 2;
+        }
+        .axis-label {
+            font-size: 12px;
+            fill: #555;
+        }
+        .legend {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Green Area Access: Zurich, Milan, and Dubai (Percentage)</h1>
+        <div id="chart"></div>
+    </div>
+
+    <script>
+        // Data for Zurich, Milan, and Dubai
+        const zurichData = [
+            {zone:0,cumSum:42132.5335301161},{zone:1,cumSum:125001.728399634},{zone:2,cumSum:277840.608409524},{zone:3,cumSum:429362.093846589},{zone:4,cumSum:539353.096733058},{zone:5,cumSum:610073.550287331},{zone:6,cumSum:649527.269081867},{zone:7,cumSum:669752.796571052},{zone:8,cumSum:681780.278792179},{zone:9,cumSum:690517.669870174},{zone:10,cumSum:696555.542094028},{zone:11,cumSum:700910.009218967},{zone:12,cumSum:703230.062517917},{zone:13,cumSum:704076.640135563},{zone:14,cumSum:704396.629152096},{zone:15,cumSum:704579.351823604},{zone:16,cumSum:704723.672286785},{zone:17,cumSum:704761.021350658}
+        ];
+
+        const milanData = [
+            {zone:0,cumSum:98161.9556260935},{zone:1,cumSum:399848.232029228},{zone:2,cumSum:998374.886301763},{zone:3,cumSum:1758427.04177939},{zone:4,cumSum:2250170.51286299},{zone:5,cumSum:2514215.95290299},{zone:6,cumSum:2647244.87848725},{zone:7,cumSum:2705161.08259811},{zone:8,cumSum:2728049.65439822},{zone:9,cumSum:2740254.02477863},{zone:10,cumSum:2748508.99769199},{zone:11,cumSum:2753009.17849125},{zone:12,cumSum:2755147.58211651},{zone:13,cumSum:2756196.49313742},{zone:14,cumSum:2756752.82184719},{zone:15,cumSum:2757036.13927111},{zone:16,cumSum:2757143.86220844},{zone:17,cumSum:2757160.91357255},{zone:18,cumSum:2757164.12587416}
+        ];
+
+        const dubaiData = [
+            {zone:0,cumSum:95633.5790405273},{zone:1,cumSum:138225.558887482},{zone:2,cumSum:351912.87903595},{zone:3,cumSum:599325.715969086},{zone:4,cumSum:818335.232318878},{zone:5,cumSum:1056456.89492035},{zone:6,cumSum:1292782.16983795},{zone:7,cumSum:1490078.33203125},{zone:8,cumSum:1669816.49747848},{zone:9,cumSum:1828384.55763245},{zone:10,cumSum:1955822.54647064},{zone:11,cumSum:2071324.1408844},{zone:12,cumSum:2181282.68679047},{zone:13,cumSum:2276428.83171463},{zone:14,cumSum:2365446.88947296},{zone:15,cumSum:2444011.88149643},{zone:16,cumSum:2510690.86303711},{zone:17,cumSum:2572030.19919586},{zone:18,cumSum:2626904.16659927},{zone:19,cumSum:2676163.75452042},{zone:20,cumSum:2720989.63005447},{zone:21,cumSum:2763225.87344742},{zone:22,cumSum:2800778.96062088},{zone:23,cumSum:2837291.32777786},{zone:24,cumSum:2872197.14393234},{zone:25,cumSum:2902778.18860245},{zone:26,cumSum:2931091.17776489},{zone:27,cumSum:2957292.59906769},{zone:28,cumSum:2980381.69984436},{zone:29,cumSum:2999352.27209854},{zone:30,cumSum:3017683.6177063},{zone:31,cumSum:3033615.71298981},{zone:32,cumSum:3046130.10455322},{zone:33,cumSum:3056524.04738998},{zone:34,cumSum:3064607.83994293},{zone:35,cumSum:3071566.62524795},{zone:36,cumSum:3077260.7857666},{zone:37,cumSum:3081376.39785767},{zone:38,cumSum:3085327.77986908},{zone:39,cumSum:3089056.9016037},{zone:40,cumSum:3092596.93643188},{zone:41,cumSum:3095498.58942413},{zone:42,cumSum:3098222.04073715},{zone:43,cumSum:3100574.60400009},{zone:44,cumSum:3102558.2085762},{zone:45,cumSum:3104286.58823013},{zone:46,cumSum:3105620.71550369},{zone:47,cumSum:3106490.81414795},{zone:48,cumSum:3107192.57608414},{zone:49,cumSum:3107620.59290695},{zone:50,cumSum:3107672.63025665}
+        ];
+
+        // Calculate percentages
+        const zurichTotal = zurichData[zurichData.length - 1].cumSum;
+        const milanTotal = milanData[milanData.length - 1].cumSum;
+        const dubaiTotal = dubaiData[dubaiData.length - 1].cumSum;
+
+        const zurichPercentages = zurichData.map(d => ({
+            zone: d.zone,
+            percentage: (d.cumSum / zurichTotal) * 100
+        }));
+
+        const milanPercentages = milanData.map(d => ({
+            zone: d.zone,
+            percentage: (d.cumSum / milanTotal) * 100
+        }));
+
+        const dubaiPercentages = dubaiData.map(d => ({
+            zone: d.zone,
+            percentage: (d.cumSum / dubaiTotal) * 100
+        }));
+
+        // Set up the chart dimensions
+        const margin = {top: 50, right: 150, bottom: 50, left: 70};
+        const width = 800 - margin.left - margin.right;
+        const height = 400 - margin.top - margin.bottom;
+
+        // Create the SVG element
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Set up scales
+        const xScale = d3.scaleLinear()
+            .domain([0, d3.max([...zurichPercentages, ...milanPercentages, ...dubaiPercentages], d => d.zone)])
+            .range([0, width]);
+
+        const yScale = d3.scaleLinear()
+            .domain([0, 100])
+            .range([height, 0]);
+
+        // Create line generators
+        const line = d3.line()
+            .x(d => xScale(d.zone))
+            .y(d => yScale(d.percentage));
+
+        // Add the lines
+        svg.append("path")
+            .datum(zurichPercentages)
+            .attr("class", "line")
+            .attr("d", line)
+            .attr("stroke", "blue");
+
+        svg.append("path")
+            .datum(milanPercentages)
+            .attr("class", "line")
+            .attr("d", line)
+            .attr("stroke", "red");
+
+        svg.append("path")
+            .datum(dubaiPercentages)
+            .attr("class", "line")
+            .attr("d", line)
+            .attr("stroke", "green");
+
+        // Add x-axis
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(xScale).ticks(10));
+
+        // Add y-axis
+        svg.append("g")
+            .call(d3.axisLeft(yScale).ticks(10));
+
+        // Add x-axis label
+        svg.append("text")
+            .attr("class", "axis-label")
+            .attr("x", width / 2)
+            .attr("y", height + margin.bottom - 10)
+            .style("text-anchor", "middle")
+            .text("Travel Time Zone (minutes)");
+
+        // Add y-axis label
+        svg.append("text")
+            .attr("class", "axis-label")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -height / 2)
+            .attr("y", -margin.left + 20)
+            .style("text-anchor", "middle")
+            .text("Percentage of Population Covered");
+
+        // Add legend
+        const legend = svg.append("g")
+            .attr("class", "legend")
+            .attr("transform", `translate(${width + 20}, 20)`);
+
+        const cities = [
+            {name: "Zurich", color: "blue"},
+            {name: "Milan", color: "red"},
+            {name: "Dubai", color: "green"}
+        ];
+
+        cities.forEach((city, i) => {
+            legend.append("rect")
+                .attr("width", 15)
+                .attr("height", 15)
+                .attr("fill", city.color)
+                .attr("y", i * 20);
+
+            legend.append("text")
+                .attr("x", 20)
+                .attr("y", i * 20 + 12)
+                .text(city.name);
+        });
+    </script>
+</body>
+</html>

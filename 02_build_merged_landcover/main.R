@@ -1,16 +1,18 @@
 # libraries
 library(terra)
 source("./merge_landcover.R")
+source("/helpers/find_inaccessmod_layer.R")
 source("/helpers/get_inaccessmod_layer.R")
+source("/helpers/get_location.R")
 
-location <- "Bern"
+location <- get_location()
 location_path <- "/data/location"
 out_file <- "rLandcoverMerged_pr.tif"
 out_dir <- file.path(location_path, location, "landcover")
 out_path <- file.path(out_dir, out_file)
 
 if (!dir.exists(out_dir)) {
-  dir.create(out_dir, showWarings = FALSE, recursive = TRUE)
+  dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 }
 
 population <- get_inaccessmod_layer(
