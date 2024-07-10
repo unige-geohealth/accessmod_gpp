@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { getListLocations, computeTravelTime } from "./helpers.js";
 import { TifContour } from "./contour.js";
 const app = express();
@@ -11,7 +12,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.json());
+app.use(cors());
 app.use("/data/location", express.static("/data/location"));
+
+
 
 app.get("/data/location/*", (req, res) => {
   const filePath = path.join(__dirname, "data/location", req.params[0]);

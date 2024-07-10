@@ -19,6 +19,7 @@
   "author": "F. Moser",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "d3-contour": "^4.0.2",
     "express": "^4.19.2",
     "geotiff": "^2.1.3",
