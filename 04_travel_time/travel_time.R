@@ -149,7 +149,7 @@ amGrassNS(
     ))
 
     rr <- raster(output_travel_time_wgs84)
-    bbox <- jsonlite::toJSON(as.list(raster::extent(rr)))
+    bbox <- as.list(raster::extent(rr))
   }
 )
 
