@@ -9,6 +9,8 @@ REMOTE_DEST="/data/"
 # Run rsync with specific include and exclude patterns
 rsync -avz --delete \
   --include='config/' \
+  --include='dbgrass/' \
+  --include='dbgrass/**' \
   --include='config/**' \
   --include='location/' \
   --include='location/*/' \

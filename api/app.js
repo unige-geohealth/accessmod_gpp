@@ -28,7 +28,9 @@ app.get("/get_list_locations", async (_, res) => {
     const locations = await getListLocations();
     res.json(locations);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res
+      .status(500)
+      .json({ message: `Error /get_list_locations ${error.message}` });
   }
 });
 
@@ -61,9 +63,9 @@ app.post("/compute_travel_time", async (req, res) => {
       data: output,
     });
   } catch (error) {
-    debugger;
-    console.error("Error computing travel time:", error);
-    res.status(500).json({ error: "Error running AccessMod scripts" });
+    res.status(500).json({
+      message: `Error /compute_travel_time ${error.message}`,
+    });
   }
 });
 

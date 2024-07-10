@@ -27,6 +27,7 @@ output_travel_time_wgs84 <- file.path(output_folder, "travel_time_wgs84.tif")
 output_pop_vs_time_data <- file.path(output_folder, "pop_vs_traveltime.csv")
 output_pop_vs_time_plot <- file.path(output_folder, "pop_vs_traveltime.pdf")
 proj_4 <- NULL
+bbox <- jsonlite::toJSON(list())
 pop_vs_time <- data.frame()
 
 dir.create(output_folder, showWarnings = FALSE, recursive = TRUE)
@@ -141,18 +142,19 @@ amGrassNS(
       createopt = "TFW=YES"
     )
 
-    tmp_tif <- raster(output_travel_time)
-    tmp_tif_reproj <- projectRaster(tmp_tif, crs = "+init=epsg:4326")
-    writeRaster(
-      tmp_tif_reproj,
-      output_travel_time_wgs84,
-      format = "GTiff",
-      overwrite = TRUE
-    )
+    system(sprintf(
+      "gdalwarp -t_srs EPSG:4326 -r mode -overwrite  %s %s",
+      output_travel_time,
+      output_travel_time_wgs84
+    ))
+
+    rr <- raster(output_travel_time_wgs84)
+    bbox <- jsonlite::toJSON(as.list(raster::extent(rr)))
   }
 )
 
 result <- list(
+  bbox = bbox,
   pop_vs_time_data = output_pop_vs_time_data,
   pop_vs_time_plot = output_pop_vs_time_plot,
   travel_time = output_travel_time,
