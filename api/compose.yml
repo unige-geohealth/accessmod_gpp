@@ -12,7 +12,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - /home/accessmod/data:/data
+      - /data:/data
     networks:
       - traefik-network
 
