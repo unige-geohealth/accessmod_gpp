@@ -14,3 +14,14 @@ get_location <- function() {
 
   return(gpp_location)
 }
+
+# Function to get command line arguments
+get_arg <- function(arg_name, default = NULL) {
+  args <- commandArgs(trailingOnly = TRUE)
+  arg_index <- match(arg_name, args)
+  if (!is.na(arg_index) && arg_index < length(args)) {
+    return(args[arg_index + 1])
+  }
+  return(default)
+}
+

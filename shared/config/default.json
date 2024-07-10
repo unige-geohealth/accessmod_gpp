@@ -83,143 +83,43 @@
     "outputTravelTime": "rTravelTime__pr",
     "outputNearest": "rNearest__pr",
     "typeAnalysis": "anisotropic",
-    "knightMove": false,
+    "knightMove": true,
     "addNearest": true,
     "joinField": "cat",
     "towardsFacilities": true,
-    "maxTravelTime": 120,
+    "maxTravelTime": 60,
     "useMaxSpeedMask": false,
     "timeoutValue": -1,
     "tableScenario": [
-      { "class": 30, "label": "no_label_30", "speed": 5, "mode": "WALKING" },
-      { "class": 40, "label": "no_label_40", "speed": 5, "mode": "WALKING" },
-      { "class": 50, "label": "no_label_50", "speed": 5, "mode": "WALKING" },
-      { "class": 111, "label": "no_label_111", "speed": 5, "mode": "WALKING" },
-      { "class": 114, "label": "no_label_114", "speed": 5, "mode": "WALKING" },
-      { "class": 115, "label": "no_label_115", "speed": 5, "mode": "WALKING" },
-      { "class": 125, "label": "no_label_125", "speed": 5, "mode": "WALKING" },
-      { "class": 126, "label": "no_label_126", "speed": 5, "mode": "WALKING" },
-      {
-        "class": 1001,
-        "label": "no_label_1001",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1002,
-        "label": "no_label_1002",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1003,
-        "label": "no_label_1003",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1004,
-        "label": "no_label_1004",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1005,
-        "label": "no_label_1005",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1006,
-        "label": "no_label_1006",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1007,
-        "label": "no_label_1007",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1008,
-        "label": "no_label_1008",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1009,
-        "label": "no_label_1009",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1010,
-        "label": "no_label_1010",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1013,
-        "label": "no_label_1013",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1014,
-        "label": "no_label_1014",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1015,
-        "label": "no_label_1015",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1016,
-        "label": "no_label_1016",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1017,
-        "label": "no_label_1017",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1018,
-        "label": "no_label_1018",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1019,
-        "label": "no_label_1019",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1021,
-        "label": "no_label_1021",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1022,
-        "label": "no_label_1022",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      {
-        "class": 1023,
-        "label": "no_label_1023",
-        "speed": 5,
-        "mode": "WALKING"
-      },
-      { "class": 1024, "label": "no_label_1024", "speed": 5, "mode": "WALKING" }
+    { "class": 30, "label": "herbaceous vegetation", "speed": 3, "mode": "WALKING" },
+    { "class": 40, "label": "cultivated/agriculture", "speed": 4, "mode": "WALKING" },
+    { "class": 50, "label": "urban/built up", "speed": 5, "mode": "WALKING" },
+    { "class": 111, "label": "closed forest, evergreen needle leaf", "speed": 2, "mode": "WALKING" },
+    { "class": 114, "label": "closed forest, deciduous broad leaf", "speed": 2, "mode": "WALKING" },
+    { "class": 115, "label": "closed forest, mixed", "speed": 2, "mode": "WALKING" },
+    { "class": 125, "label": "open forest, mixed", "speed": 3, "mode": "WALKING" },
+    { "class": 126, "label": "open forest, not matching other definitions", "speed": 3, "mode": "WALKING" },
+    { "class": 1001, "label": "trunk", "speed": 80, "mode": "MOTORIZED" },
+    { "class": 1002, "label": "trunk_link", "speed": 60, "mode": "MOTORIZED" },
+    { "class": 1003, "label": "primary", "speed": 70, "mode": "MOTORIZED" },
+    { "class": 1004, "label": "primary_link", "speed": 50, "mode": "MOTORIZED" },
+    { "class": 1005, "label": "motorway", "speed": 120, "mode": "MOTORIZED" },
+    { "class": 1006, "label": "motorway_link", "speed": 80, "mode": "MOTORIZED" },
+    { "class": 1007, "label": "secondary", "speed": 60, "mode": "MOTORIZED" },
+    { "class": 1008, "label": "secondary_link", "speed": 40, "mode": "MOTORIZED" },
+    { "class": 1009, "label": "tertiary", "speed": 50, "mode": "MOTORIZED" },
+    { "class": 1010, "label": "tertiary_link", "speed": 30, "mode": "MOTORIZED" },
+    { "class": 1013, "label": "residential", "speed": 30, "mode": "MOTORIZED" },
+    { "class": 1014, "label": "living_street", "speed": 20, "mode": "MOTORIZED" },
+    { "class": 1015, "label": "service", "speed": 30, "mode": "MOTORIZED" },
+    { "class": 1016, "label": "track", "speed": 20, "mode": "BICYCLING" },
+    { "class": 1017, "label": "pedestrian", "speed": 5, "mode": "WALKING" },
+    { "class": 1018, "label": "path", "speed": 10, "mode": "BICYCLING" },
+    { "class": 1019, "label": "footway", "speed": 5, "mode": "WALKING" },
+    { "class": 1021, "label": "bridleway", "speed": 15, "mode": "BICYCLING" },
+    { "class": 1022, "label": "cycleway", "speed": 20, "mode": "BICYCLING" },
+    { "class": 1023, "label": "steps", "speed": 2, "mode": "WALKING" },
+    { "class": 1024, "label": "unclassified", "speed": 40, "mode": "MOTORIZED" }
     ],
     "tableFacilities": [],
     "roundingMethod": "ceil"

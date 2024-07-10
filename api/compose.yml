@@ -1,0 +1,55 @@
+services:
+  accessmod_api:
+    image: fredmoser/accessmod_api:latest
+    container_name: accessmod_api
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:3000/get_list_locations"]
+      interval: 5s
+      timeout: 60s
+      retries: 10
+      start_period: 10s
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/accessmod/data:/data
+    networks:
+      - traefik-network
+
+  traefik:
+    image: traefik:3.0.4
+    container_name: traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - traefik-volume:/etc/traefik
+    command:
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.email=${EMAIL}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/etc/traefik/acme.json"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--log.level=INFO"
+      - "--accesslog=true"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.accessmod.rule=Host(`accessmod.mapx.org`)"
+      - "traefik.http.routers.accessmod.entrypoints=websecure"
+      - "traefik.http.routers.accessmod.tls=true"
+      - "traefik.http.routers.accessmod.tls.certresolver=letsencrypt"
+      - "traefik.http.services.accessmod.loadbalancer.server.port=3000"
+
+networks:
+  traefik-network:
+    external: true
+
+volumes:
+  traefik-volume:

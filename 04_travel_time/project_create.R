@@ -3,7 +3,10 @@ source("global.R")
 source("/helpers/find_inaccessmod_layer.R")
 source("/helpers/get_location.R")
 
-location <- get_location()
+# Get location from argument or default
+location_arg <- get_arg("--location")
+location <- if (!is.null(location_arg)) location_arg else get_location()
+
 location_path <- "/data/location"
 project_name <- sprintf("project_gpp_%s", location)
 project_db <- file.path("/data/dbgrass/", project_name)
@@ -18,7 +21,6 @@ dem_path <- find_inaccessmod_layer(
   "rDEM_pr.tif",
   copy = TRUE
 )
-browser()
 
 amGrassNS(
   mapset = "demo",
