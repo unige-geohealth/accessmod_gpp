@@ -20,6 +20,8 @@ services:
     image: traefik:3.0.4
     container_name: traefik
     restart: unless-stopped
+    networks:
+      - traefik-network
     ports:
       - "80:80"
       - "443:443"
