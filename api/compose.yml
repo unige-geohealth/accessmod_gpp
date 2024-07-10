@@ -15,6 +15,12 @@ services:
       - /data:/data
     networks:
       - traefik-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.accessmod.loadbalancer.server.port=3000"
+      - "traefik.http.routers.accessmod.rule=Host(`accessmod.mapx.org`)"
+      - "traefik.http.routers.accessmod.entrypoints=websecure"
+
 
   traefik:
     image: traefik:3.0.4
@@ -42,14 +48,6 @@ services:
       - "--accesslog=true"
       - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
       - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
-
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.accessmod.rule=Host(`accessmod.mapx.org`)"
-      - "traefik.http.routers.accessmod.entrypoints=websecure"
-      - "traefik.http.routers.accessmod.tls=true"
-      - "traefik.http.routers.accessmod.tls.certresolver=letsencrypt"
-      - "traefik.http.services.accessmod.loadbalancer.server.port=3000"
 
 networks:
   traefik-network:
