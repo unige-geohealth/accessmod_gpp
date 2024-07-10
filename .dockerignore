@@ -1,0 +1,8 @@
+*
+!/api
+!/helpers
+!/04_travel_time
+**/*~
+**/*.log
+**/.DS_Store
+**/Thumbs.db
