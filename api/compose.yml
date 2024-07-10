@@ -1,55 +1,54 @@
 services:
   traefik:
-    image: "traefik:v3.0"
-    container_name: "traefik"
+    image: traefik:v2.3.2
+    container_name: traefik
     restart: unless-stopped
-    networks:
-      - traefik-network
     ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
+      - 80:80
+      - 443:443
+      - 8080:8080
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - traefik-volume:/etc/traefik
     command:
-      - "--api.insecure=true"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
-      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
-      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.watch=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --certificatesresolvers.letsencrypt.acme.tlschallenge=true
+      - --certificatesresolvers.letsencrypt.acme.email=frederic.moser@unige.ch
+      - --certificatesresolvers.letsencrypt.acme.storage=/etc/traefik/acme.json
+      - --log.level=INFO
 
-      - "--entrypoints.websecure.address=:443"
-      - "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
-      - "--certificatesresolvers.letsencrypt.acme.email=frederic.moser@unige.ch"
-      - "--certificatesresolvers.letsencrypt.acme.storage=/etc/traefik/acme.json"
-      - "--log.level=INFO"
   accessmod:
     image: fredmoser/accessmod_api:latest
-    container_name: accessmod_api
+    container_name: accessmod
     restart: unless-stopped
+    depends_on:
+      - traefik
     healthcheck:
       test:
-        ["CMD", "wget", "--spider", "http://localhost:3000/get_list_locations"]
+        - CMD
+        - wget
+        - --spider
+        - http://localhost:3000/get_list_locations
       interval: 5s
       timeout: 60s
       retries: 10
       start_period: 10s
-    ports:
-      - "3000:3000"
+    expose:
+      - 3000
     volumes:
       - /data:/data
-    networks:
-      - traefik-network
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.accessmod.rule=Host(`accessmod.mapx.org`)"
-      - "traefik.http.routers.accessmod.entrypoints=websecure"
-
-networks:
-  traefik-network:
-    external: true
+      traefik.enable: "true"
+      traefik.http.routers.accessmod.rule: Host(`accessmod.mapx.org`)
+      traefik.http.routers.accessmod.entrypoints: websecure
+      traefik.http.routers.accessmod.tls: "true"
+      traefik.http.routers.accessmod.tls.certresolver: letsencrypt
+      traefik.http.services.accessmod.loadbalancer.server.port: "3000"
 
 volumes:
   traefik-volume:
