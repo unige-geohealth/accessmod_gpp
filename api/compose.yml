@@ -43,7 +43,7 @@ services:
 
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.accessmod.rule=Host(`srv560729.hstgr.cloud`)"
+      - "traefik.http.routers.accessmod.rule=Host(`accessmod.mapx.org`)"
       - "traefik.http.routers.accessmod.entrypoints=websecure"
       - "traefik.http.routers.accessmod.tls=true"
       - "traefik.http.routers.accessmod.tls.certresolver=letsencrypt"
