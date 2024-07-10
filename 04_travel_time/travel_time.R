@@ -62,7 +62,7 @@ amGrassNS(
     # - match AccessMod classes in /www/dictionary/classes.json
     # - use two underscore to separate tags from class, and
     #   one between tags e.g. vFacility__test_a
-    if (!amRastExsit("rLandCoverMerged__pr")) {
+    if (!amRastExists("rLandCoverMerged__pr")) {
       execGRASS(
         "r.in.gdal",
         band = 1,
@@ -73,7 +73,7 @@ amGrassNS(
       )
     }
 
-    if (!amRastExsit("rPopulation__pr")) {
+    if (!amRastExists("rPopulation__pr")) {
       execGRASS(
         "r.in.gdal",
         band = 1,
@@ -85,7 +85,7 @@ amGrassNS(
     }
 
 
-    if (!amVectExsit("rLandCoverMerged__pr")) {
+    if (!amVectExists("rLandCoverMerged__pr")) {
       execGRASS("v.in.ogr",
         flags = c("overwrite", "w", "2"), # overwrite, lowercase, 2d only,
         input = facilities_path,
