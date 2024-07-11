@@ -15,6 +15,9 @@ source("/helpers/pop_vs_traveltime.R")
 location <- get_arg("--location", default = get_location())
 scenario <- get_arg("--scenario", default = NULL)
 
+
+
+
 location_path <- "/data/location"
 project_name <- sprintf("project_gpp_%s", location)
 
@@ -25,8 +28,10 @@ conf$location <- project_name
 conf$mapset <- project_name
 
 if (isNotEmpty(scenario)) {
-  conf$tableScenario <- jsonlite::fromJSON(scenario)
+  conf$args$tableScenario <- jsonlite::fromJSON(scenario)
 }
+
+
 
 output_folder <- file.path(location_path, location, "output")
 output_nearest <- file.path(output_folder, "travel_nearest.tif")
