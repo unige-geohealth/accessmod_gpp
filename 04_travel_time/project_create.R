@@ -1,5 +1,12 @@
 library(fs)
-source("global.R")
+global_cache <- "/tmp/am_global.RData"
+
+if (file_exists(global_cache)) {
+  load(global_cache)
+} else {
+  source("global.R")
+}
+
 source("/helpers/find_inaccessmod_layer.R")
 source("/helpers/get_location.R")
 

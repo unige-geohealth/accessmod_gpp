@@ -1,4 +1,12 @@
-source("global.R")
+library(fs)
+global_cache <- "/tmp/am_global.RData"
+
+if (file_exists(global_cache)) {
+  load(global_cache)
+} else {
+  source("global.R")
+}
+
 source("/helpers/find_inaccessmod_layer.R")
 source("/helpers/get_location.R")
 source("/helpers/pop_vs_traveltime.R")
@@ -24,6 +32,7 @@ output_folder <- file.path(location_path, location, "output")
 output_nearest <- file.path(output_folder, "travel_nearest.tif")
 output_travel_time <- file.path(output_folder, "travel_time.tif")
 output_travel_time_wgs84 <- file.path(output_folder, "travel_time_wgs84.tif")
+output_travel_time_png <- file.path(output_folder, "travel_time.png")
 output_pop_vs_time_data <- file.path(output_folder, "pop_vs_traveltime.csv")
 output_pop_vs_time_plot <- file.path(output_folder, "pop_vs_traveltime.pdf")
 proj_4 <- NULL
@@ -148,6 +157,13 @@ amGrassNS(
       output_travel_time_wgs84
     ))
 
+    system(sprintf(
+      "gdal_translate -of PNG %s %s",
+      output_travel_time_wgs84,
+      output_travel_time_png
+    ))
+
+
     rr <- raster(output_travel_time_wgs84)
     bbox <- as.list(raster::extent(rr))
   }
@@ -159,6 +175,7 @@ result <- list(
   pop_vs_time_plot = output_pop_vs_time_plot,
   travel_time = output_travel_time,
   travel_time_wgs84 = output_travel_time_wgs84,
+  travel_time_png = output_travel_time_png,
   nearest = output_nearest,
   proj_4 = proj_4,
   thresholds = pop_vs_time$zone
