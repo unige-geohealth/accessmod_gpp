@@ -22,6 +22,25 @@ DEV_MODE=false
 CITY=$DEFAULT_CITY
 
 
+build_dirs() {
+  # Check if the ./shared directory exists
+  if [ ! -d "./shared" ]; then
+    echo "Error: ./shared directory does not exist."
+    return 1
+  fi
+
+    # List of directories to create
+    dirs=("location" "cache" "dbgrass" "logs" "config")
+
+    # Loop through the list and create directories if they don't exist
+    for dir in "${dirs[@]}"; do
+      mkdir -p "./shared/$dir"
+    done
+
+    echo "Directories OK."
+    return 0
+  }
+
 # Function to display the menu
 display_menu() {
   echo "[ City $CITY ]"
@@ -82,6 +101,10 @@ run_docker() {
     $image \
     $cmd
   }
+
+
+# Build data directories if needed
+build_dirs
 
 # Set variables
 CITY=$(ask_city)
