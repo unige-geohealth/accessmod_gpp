@@ -1,5 +1,7 @@
 #AccessMod + GPP
 
+[PROTOTYPE]
+
 ## 🌟 Project Overview
 
 This project utilizes AccessMod to compute travel times to various OpenStreetMap (OSM) features, such as green areas, parks, nature reserves, and other leisure spaces. It's designed to assess the accessibility of features, e.g. public green spaces in urban environments.
@@ -58,9 +60,71 @@ This script will guide you through the following steps:
 - `helpers`: Utility scripts
 - `data`: Main data directory, includes subdirectories for each analyzed city
 
+
+## 🌐 Direct API Access
+
+In addition to using the `./start.sh` script, you can interact directly with the AccessMod API using curl commands or our Docker wrapper.
+
+### 🛠️ Using Direct curl Commands
+
+You can use the following curl commands to interact directly with the AccessMod API:
+
+1. List available locations:
+```bash
+curl -s -X GET "https://accessmod.mapx.org/get_list_locations" \
+     -H "Content-Type: application/json"
+```
+
+2. Create location project:
+```bash
+curl -s -X POST "https://accessmod.mapx.org/create_location_project" \
+     -H "Content-Type: application/json" \
+     -d '{"location":"Bern"}'
+```
+
+3. Compute travel time:
+```bash
+curl -s -X POST "https://accessmod.mapx.org/compute_travel_time" \
+     -H "Content-Type: application/json" \
+     -d '{"location":"Bern","scenario":"scenario1"}'
+```
+
+Replace "Bern" and "scenario1" with your desired location and scenario (see in assets for a generic scenario).
+
+### 🐳 Using the Docker curl Wrapper
+
+We provide a Docker image that wraps the curl functionality, making it easier to interact with the API in a consistent environment. To use it:
+
+1. Pull the Docker image:
+```bash
+docker pull fredmoser/accessmod_api_curl
+```
+
+2. Run commands using the Docker wrapper:
+
+List available locations:
+```bash
+docker run --rm fredmoser/accessmod_api_curl --action locations_list
+```
+
+Create a location project:
+```bash
+docker run --rm fredmoser/accessmod_api_curl --action location_create --location Bern
+```
+
+Compute travel time:
+```bash
+docker run --rm fredmoser/accessmod_api_curl --action travel_time --location Bern --scenario scenario1
+```
+
+The Docker wrapper provides a convenient way to interact with the API, especially if you're working in an environment where curl might not be readily available or if you want to ensure consistent behavior across different systems.
+
+Note: The Docker wrapper uses a script similar to the one described in the Usage section, but packaged in a Docker container for ease of use and consistency.
+
+
 ## 🔗 Dependencies
 
-- AccessMod (version 5.8.3-alpha.1)
+- AccessMod (version 5.8.3-alpha.2)
 - inaccessmod package (latest version)
 
 ## 💻 Development
