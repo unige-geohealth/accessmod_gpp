@@ -3,7 +3,7 @@ library(sf) # if not loaded here, initiat_project fails
 library(inAccessMod)
 source("/helpers/get_location.R")
 
-location <- get_location() 
+location <- get_location()
 wd <- normalizePath("/data/location/")
 
 # iso3string <- "CHE"
@@ -47,9 +47,24 @@ download_landcover(
   mostRecent = TRUE
 )
 
-download_osm(wd, location, "roads")
-download_osm(wd, location, "waterLines")
-download_osm(wd, location, "waterPolygons")
+download_osm(
+  wd,
+  location,
+  type = "roads",
+  alwaysDownload = TRUE
+)
+download_osm(
+  wd,
+  location,
+  type = "waterLines",
+  alwaysDownload = TRUE
+)
+download_osm(
+  wd,
+  location,
+  type = "waterPolygons",
+  alwaysDownload = TRUE
+)
 
 
 process_inputs(
@@ -68,4 +83,3 @@ compile_processed_data(
   location,
   mostRecent = TRUE
 )
-

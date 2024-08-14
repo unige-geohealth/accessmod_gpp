@@ -1,7 +1,10 @@
 import express from "express";
 import cors from "cors";
-import { getListLocations, computeTravelTime } from "./helpers.js";
-import { TifContour } from "./contour.js";
+import {
+  getListLocations,
+  computeTravelTimeHandler,
+  createLocationProjectHandler,
+} from "./helpers.js";
 const app = express();
 const port = process.env.NODE_ENV === "development" ? 3030 : 3000;
 
@@ -14,8 +17,6 @@ const __dirname = path.dirname(__filename);
 app.use(express.json());
 app.use(cors());
 app.use("/data/location", express.static("/data/location"));
-
-
 
 app.get("/data/location/*", (req, res) => {
   const filePath = path.join(__dirname, "data/location", req.params[0]);
@@ -41,36 +42,12 @@ app.get("/get_list_locations", async (_, res) => {
 // POST endpoint to compute travel time
 app.post("/compute_travel_time", async (req, res) => {
   const { location, scenario, add_contours } = req.body;
+  await computeTravelTimeHandler(res, location, scenario, add_contours);
+});
 
-  try {
-    const locations = await getListLocations();
-
-    if (!locations.includes(location)) {
-      throw new Error(
-        `Location ${location} is not yet available, come back later`
-      );
-    }
-
-    const output = await computeTravelTime(location, scenario);
-
-    if (add_contours) {
-      const cc = new TifContour({
-        thresholds: output.thresholds,
-        raster: output.travel_time,
-        proj4: output.proj_4,
-      });
-      output.contours = await cc.render();
-    }
-
-    res.json({
-      message: "Travel time computation completed",
-      data: output,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: `Error /compute_travel_time ${error.message}`,
-    });
-  }
+app.post("/create_location_project", async (req, res) => {
+  const { location, force } = req.body;
+  await createLocationProjectHandler(res, location, force);
 });
 
 app.listen(port, () => {

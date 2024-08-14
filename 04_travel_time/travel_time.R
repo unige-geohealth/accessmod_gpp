@@ -10,12 +10,10 @@ if (file_exists(global_cache)) {
 source("/helpers/find_inaccessmod_layer.R")
 source("/helpers/get_location.R")
 source("/helpers/pop_vs_traveltime.R")
-
+source("/helpers/hash.R")
 
 location <- get_arg("--location", default = get_location())
 scenario <- get_arg("--scenario", default = NULL)
-
-
 
 
 location_path <- "/data/location"
@@ -31,15 +29,28 @@ if (isNotEmpty(scenario)) {
   conf$args$tableScenario <- jsonlite::fromJSON(scenario)
 }
 
+#
+# TODO : don't re compute if the output_folder already exists
+#
+conf_hash <- generate_hash(conf)
+output_folder <- file.path(location_path, location, "output", conf_hash)
 
-
-output_folder <- file.path(location_path, location, "output")
 output_nearest <- file.path(output_folder, "travel_nearest.tif")
 output_travel_time <- file.path(output_folder, "travel_time.tif")
 output_travel_time_wgs84 <- file.path(output_folder, "travel_time_wgs84.tif")
 output_travel_time_png <- file.path(output_folder, "travel_time.png")
 output_pop_vs_time_data <- file.path(output_folder, "pop_vs_traveltime.csv")
 output_pop_vs_time_plot <- file.path(output_folder, "pop_vs_traveltime.pdf")
+output_result <- file.path(output_folder, "travel_time_output.json")
+
+if (file.exists(output_result)) {
+  result <- readRDS(output_result)
+  result$cache <- TRUE
+  print(jsonlite::toJSON(result, auto_unbox = TRUE))
+  quit(save = "no", status = 0, runLast = FALSE)
+}
+
+
 proj_4 <- NULL
 bbox <- jsonlite::toJSON(list())
 pop_vs_time <- data.frame()
@@ -176,6 +187,7 @@ amGrassNS(
 
 result <- list(
   bbox = bbox,
+  cache = FALSE,
   pop_vs_time_data = output_pop_vs_time_data,
   pop_vs_time_plot = output_pop_vs_time_plot,
   travel_time = output_travel_time,
@@ -186,5 +198,6 @@ result <- list(
   thresholds = pop_vs_time$zone
 )
 
+saveRDS(result, output_result)
 
 print(jsonlite::toJSON(result, auto_unbox = TRUE))

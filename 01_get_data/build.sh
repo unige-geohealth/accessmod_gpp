@@ -1,7 +1,9 @@
 #!/bin/bash
-echo "Build on push with github actions"
 
-PLATFORMS=linux/amd64,linux/arm64
-IMAGE=fredmoser/inaccessmod:latest
+docker build --push \
+  --platform linux/amd64,linux/arm64 \
+  -t fredmoser/inaccessmod:latest \
+  -f ./Dockerfile \
+  ..
 
-docker build --platform $PLATFORMS -t $IMAGE --push .
+docker pull fredmoser/inaccessmod:latest

@@ -39,4 +39,4 @@ if (!dir.exists(out_dir)) {
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 }
 
-st_write(points, out_file, driver = "ESRI Shapefile")
+st_write(points, out_file, driver = "ESRI Shapefile", append = FALSE)

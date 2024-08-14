@@ -1,0 +1,176 @@
+[
+  {
+    "class": 30,
+    "label": "herbaceous vegetation",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 40,
+    "label": "cultivated/agriculture",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 50,
+    "label": "urban/built up",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 111,
+    "label": "closed forest, evergreen needle leaf",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 114,
+    "label": "closed forest, deciduous broad leaf",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 115,
+    "label": "closed forest, mixed",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 125,
+    "label": "open forest, mixed",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 126,
+    "label": "open forest, not matching other definitions",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 1001,
+    "label": "trunk",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1002,
+    "label": "trunk_link",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1003,
+    "label": "primary",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1004,
+    "label": "primary_link",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1005,
+    "label": "motorway",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1006,
+    "label": "motorway_link",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1007,
+    "label": "secondary",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1008,
+    "label": "secondary_link",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1009,
+    "label": "tertiary",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1010,
+    "label": "tertiary_link",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1013,
+    "label": "residential",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1014,
+    "label": "living_street",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1015,
+    "label": "service",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1016,
+    "label": "track",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  },
+  {
+    "class": 1017,
+    "label": "pedestrian",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 1018,
+    "label": "path",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 1019,
+    "label": "footway",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 1021,
+    "label": "bridleway",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 1022,
+    "label": "cycleway",
+    "speed": 5,
+    "mode": "BICYCLING"
+  },
+  {
+    "class": 1023,
+    "label": "steps",
+    "speed": 5,
+    "mode": "WALKING"
+  },
+  {
+    "class": 1024,
+    "label": "unclassified",
+    "speed": 5,
+    "mode": "MOTORIZED"
+  }
+]

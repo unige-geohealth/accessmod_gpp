@@ -1,0 +1,38 @@
+services:
+  accessmod-api:
+    image: fredmoser/accessmod_api:latest
+    build:
+      context: ../../
+      dockerfile: ./api/Dockerfile
+      platforms: 
+        - linux/amd64
+        - linux/arm64
+    ports:
+      - "3000:3000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ../../data:/data
+  accessmod-api-dev:
+    image: fredmoser/accessmod_api:latest
+    build:
+      context: ../../
+      dockerfile: ./api/Dockerfile
+    ports:
+      - "3030:3030"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ../:/api
+      - ../../data:/data
+      - ../../helpers:/helpers
+      - ../../01_get_data:/01_get_data
+      - ../../02_build_merged_landcover:/02_build_merged_landcover
+      - ../../03_create_start_points:/03_create_start_points
+      - ../../04_travel_time:/04_travel_time
+
+    environment:
+      - NODE_ENV=development
+      - BIND_PATH=$BIND_PATH
+    command: ["tail", "-f", "/dev/null"]
+
+
+

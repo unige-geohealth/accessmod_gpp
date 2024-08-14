@@ -23,9 +23,9 @@ CITY=$DEFAULT_CITY
 
 
 build_dirs() {
-  # Check if the ./shared directory exists
-  if [ ! -d "./shared" ]; then
-    echo "Error: ./shared directory does not exist."
+  # Check if the ./data directory exists
+  if [ ! -d "./data" ]; then
+    echo "Error: ./data directory does not exist."
     return 1
   fi
 
@@ -34,7 +34,7 @@ build_dirs() {
 
     # Loop through the list and create directories if they don't exist
     for dir in "${dirs[@]}"; do
-      mkdir -p "./shared/$dir"
+      mkdir -p "./data/$dir"
     done
 
     echo "Directories OK."
@@ -86,7 +86,7 @@ run_docker() {
 
   if [ "$part" == "04_travel_time" ]; then
     image="fredmoser/accessmod:$ACCESSMOD_VERSION"
-    cmd="/bin/bash -c '/run/main.sh'"
+    cmd="/bin/bash -c '/part/main.sh'"
   fi
 
   if [ "$DEV_MODE" == "true" ]; then
@@ -95,8 +95,8 @@ run_docker() {
 
   docker run -ti --rm \
     -v $(pwd)/helpers:/helpers \
-    -v $(pwd)/shared:/data \
-    -v $(pwd)/${part}:/run \
+    -v $(pwd)/data:/data \
+    -v $(pwd)/${part}:/part \
     -e GPP_LOCATION="$CITY" \
     $image \
     $cmd

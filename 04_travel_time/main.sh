@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
 
-Rscript /run/project_create.R 
-Rscript /run/travel_time.R 
+
+#Rscript /part/project_create.R 
+#Rscript /part/travel_time.R 

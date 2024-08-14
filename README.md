@@ -56,7 +56,7 @@ This script will guide you through the following steps:
 
 - `01_get_data`, `02_build_merged_landcover`, `03_create_start_points`, `04_travel_time`: Contain scripts for different stages of data processing and analysis
 - `helpers`: Utility scripts
-- `shared`: Main data directory, includes subdirectories for each analyzed city
+- `data`: Main data directory, includes subdirectories for each analyzed city
 
 ## 🔗 Dependencies
 

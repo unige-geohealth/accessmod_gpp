@@ -1,6 +1,9 @@
 *
 !/api
 !/helpers
+!/01_get_data
+!/02_build_merged_landcover
+!/03_create_start_points
 !/04_travel_time
 **/*~
 **/*.log

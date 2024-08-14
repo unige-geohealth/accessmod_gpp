@@ -38,10 +38,10 @@ Icon?
 
 
 # data
-shared/location
-shared/dbgrass
-shared/cache
-shared/logs
+data/location
+data/dbgrass
+data/cache
+data/logs
 
 .gpp_location
 _archives
