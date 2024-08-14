@@ -29,7 +29,7 @@ services:
     depends_on:
       - traefik
     environment:
-      - HOST=accessmod.mapx.org
+      - HOST=https://accessmod.mapx.org
     healthcheck:
       test:
         - CMD
