@@ -186,6 +186,7 @@ amGrassNS(
 )
 
 result <- list(
+  host = Sys.getenv("HOST"),
   bbox = bbox,
   cache = FALSE,
   pop_vs_time_data = output_pop_vs_time_data,

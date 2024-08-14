@@ -28,6 +28,8 @@ services:
     restart: unless-stopped
     depends_on:
       - traefik
+    environment:
+      - HOST=accessmod.mapx.org
     healthcheck:
       test:
         - CMD
