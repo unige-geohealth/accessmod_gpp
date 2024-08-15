@@ -4,6 +4,9 @@ set -e
 ACCESSMOD_VERSION="5.8.3-alpha.1"
 INACCESSMOD_VERSION="latest"
 CITY_FILE=.gpp_location
+IMAGE_ACCESSMOD="fredmoser/accessmod:$ACCESSMOD_VERSION"
+IMAGE_INACCESSMOD="fredmoser/inaccessmod:$INACCESSMOD_VERSION"
+
 
 if [ -e "$CITY_FILE" ]
 then
@@ -76,23 +79,30 @@ ask_city() {
   echo $city
 }
 
+
+
+update_images(){
+  echo "Updating images"
+  DOCKER_CLI_HINTS=false docker pull $IMAGE_ACCESSMOD
+  DOCKER_CLI_HINTS=false docker pull $IMAGE_INACCESSMOD
+}
+
 # Function to run the docker command with the selected part
 run_docker() {
   local part=$1
-  local image="fredmoser/inaccessmod:$INACCESSMOD_VERSION"
+  local image=$IMAGE_INACCESSMOD
   local cmd="Rscript main.R"
   #local develop=$(ask_develop)
   #local city=$(ask_city)
 
   if [ "$part" == "04_travel_time" ]; then
-    image="fredmoser/accessmod:$ACCESSMOD_VERSION"
+    image=$IMAGE_ACCESSMOD
     cmd="/bin/bash -c '/part/main.sh'"
   fi
 
   if [ "$DEV_MODE" == "true" ]; then
     cmd="/bin/bash"
   fi
-
   docker run -ti --rm \
     -v $(pwd)/helpers:/helpers \
     -v $(pwd)/data:/data \
@@ -102,6 +112,8 @@ run_docker() {
     $cmd
   }
 
+# Update images
+update_images
 
 # Build data directories if needed
 build_dirs

@@ -2,5 +2,5 @@
 set -e
 
 
-#Rscript /part/project_create.R 
-#Rscript /part/travel_time.R 
+Rscript /part/project_create.R 
+Rscript /part/travel_time.R 
