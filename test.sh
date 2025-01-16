@@ -3,8 +3,8 @@
 BASE=$(pwd)
 DATA=$BASE"/data"
 SCENARIO="$(cat ./assets/scenario_default.json)"
-LOCATION="Yerevan"
-#LOCATION="Milan"
+#LOCATION="Yerevan"
+LOCATION="Madrid"
 
 
 docker run \

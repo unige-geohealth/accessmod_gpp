@@ -28,9 +28,10 @@ app.get("/data/location/*", (req, res) => {
 });
 
 // GET endpoint to list available locations
-app.get("/get_list_locations", async (_, res) => {
+app.get("/get_list_locations", async (req, res) => {
   try {
-    const locations = await getListLocations();
+    const showAll = req.query.all === 'true';
+    const locations = await getListLocations(!showAll); // Invert 'all' to get 'complete'
     res.json(locations);
   } catch (error) {
     res

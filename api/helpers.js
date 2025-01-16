@@ -82,14 +82,44 @@ export async function initDB(location) {
 }
 
 // Helper function to list locations
-export async function getListLocations() {
+export async function getListLocations(complete = true) {
   try {
     const locationPath = "/data/location";
     const directories = await fs.readdir(locationPath, { withFileTypes: true });
+    const requiredFolders = ["data", "facilities", "landcover", "output"];
+
     const locations = directories
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name);
-    return locations;
+
+    if (!complete) {
+      return locations;
+    }
+
+    // Filter locations that have all required subfolders
+    const completeLocations = await Promise.all(
+      locations.map(async (location) => {
+        try {
+          const locationSubdirs = await fs.readdir(path.join(locationPath, location), {
+            withFileTypes: true,
+          });
+          const subdirNames = locationSubdirs
+            .filter((dirent) => dirent.isDirectory())
+            .map((dirent) => dirent.name);
+          return {
+            location,
+            isComplete: requiredFolders.every((folder) => subdirNames.includes(folder)),
+          };
+        } catch (error) {
+          console.error(`Error checking subfolders for ${location}:`, error);
+          return { location, isComplete: false };
+        }
+      })
+    );
+
+    return completeLocations
+      .filter((loc) => loc.isComplete)
+      .map((loc) => loc.location);
   } catch (error) {
     console.error("Error reading locations:", error);
     throw new Error("Unable to retrieve locations");
