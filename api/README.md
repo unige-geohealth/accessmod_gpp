@@ -74,7 +74,7 @@ docker run \
   -v data:/data \
   -v /var/run/docker.sock:/var/run/docker.sock \
   fredmoser/accessmod_api  cli \
-  action=create location=Marseille
+  action=create_location=Marseille
 docker run \
   -v data:/data \
   fredmoser/accessmod_api  cli \

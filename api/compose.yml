@@ -29,7 +29,7 @@ services:
     depends_on:
       - traefik
     environment:
-      - HOST=https://accessmod.mapx.org
+      - HOST=https://api.accessmod.org
     healthcheck:
       test:
         - CMD
@@ -47,7 +47,7 @@ services:
       - /data:/data
     labels:
       traefik.enable: "true"
-      traefik.http.routers.accessmod.rule: Host(`accessmod.mapx.org`)
+      traefik.http.routers.accessmod.rule: Host(`api.accessmod.org`)
       traefik.http.routers.accessmod.entrypoints: websecure
       traefik.http.routers.accessmod.tls: "true"
       traefik.http.routers.accessmod.tls.certresolver: letsencrypt

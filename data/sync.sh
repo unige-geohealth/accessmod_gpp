@@ -3,7 +3,7 @@
 
 # Set source and destination
 SRC_DIR="."
-REMOTE_SERVER="root@srv560729.hstgr.cloud"
+REMOTE_SERVER="fred@api.accessmod.org"
 REMOTE_DEST="/data/"
 
 # Run rsync with specific include and exclude patterns

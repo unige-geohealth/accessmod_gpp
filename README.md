@@ -71,20 +71,20 @@ You can use the following curl commands to interact directly with the AccessMod 
 
 1. List available locations:
 ```bash
-curl -s -X GET "https://accessmod.mapx.org/get_list_locations" \
+curl -s -X GET "https://api.accessmod.org/get_list_locations" \
      -H "Content-Type: application/json"
 ```
 
 2. Create location project:
 ```bash
-curl -s -X POST "https://accessmod.mapx.org/create_location_project" \
+curl -s -X POST "https://api.accessmod.org/create_location_project" \
      -H "Content-Type: application/json" \
      -d '{"location":"Bern"}'
 ```
 
 3. Compute travel time:
 ```bash
-curl -s -X POST "https://accessmod.mapx.org/compute_travel_time" \
+curl -s -X POST "https://api.accessmod.org/compute_travel_time" \
      -H "Content-Type: application/json" \
      -d '{"location":"Bern","scenario":"scenario1"}'
 ```

@@ -5,8 +5,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 class TravelTimeRequester:
     def __init__(self):
-        self.locations_url = "https://accessmod.mapx.org/get_list_locations"
-        self.compute_url = "https://accessmod.mapx.org/compute_travel_time"
+        self.locations_url = "https://api.accesmod.org/get_list_locations"
+        self.compute_url = "https://api.accessmod.org/compute_travel_time"
         
     def get_locations(self):
         """Fetch list of available locations"""
