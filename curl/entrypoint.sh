@@ -2,7 +2,7 @@
 set -e
 
 # Default values
-API_BASE_URL="https://accessmod.mapx.org"
+API_BASE_URL="https://api.accessmod.org"
 CONTENT_TYPE="Content-Type: application/json"
 LOCATION=""
 SCENARIO=""

@@ -19,10 +19,25 @@ scenario <- get_arg("--scenario", default = NULL)
 location_path <- "/data/location"
 project_name <- sprintf("project_gpp_%s", location)
 
-browser()
-conf <- amAnalysisReplayParseConf(
-  "/data/config/default.json"
-)
+# Load config file
+config_path <- "/data/config/default.json"
+if (!file.exists(config_path)) {
+  stop(sprintf("Config file not found at %s", config_path))
+}
+
+# Parse config with error handling
+conf <- tryCatch({
+  conf <- amAnalysisReplayParseConf(config_path)
+  if (!is.list(conf)) {
+    conf <- jsonlite::fromJSON(config_path)
+  }
+  conf
+}, error = function(e) {
+  # Fallback to manual JSON parsing if AccessMod function fails
+  message("Warning: amAnalysisReplayParseConf failed, using direct JSON parsing")
+  jsonlite::fromJSON(config_path)
+})
+
 conf$location <- project_name
 conf$mapset <- project_name
 

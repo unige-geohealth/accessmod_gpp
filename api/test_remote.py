@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 class TravelTimeRequester:
     def __init__(self):
-        self.locations_url = "https://api.accesmod.org/get_list_locations"
+        self.locations_url = "https://api.accessmod.org/get_list_locations"
         self.compute_url = "https://api.accessmod.org/compute_travel_time"
         
     def get_locations(self):
@@ -64,6 +64,28 @@ class TravelTimeRequester:
         
         return results
 
+def test_specific_location(location_name):
+    requester = TravelTimeRequester()
+    print(f"Testing travel time computation for {location_name}...")
+    
+    # Get locations to verify the location exists
+    locations = requester.get_locations()
+    if not locations:
+        print("Failed to fetch locations!")
+        return
+    
+    print(f"Available locations: {locations}")
+    
+    if location_name not in locations:
+        print(f"Location '{location_name}' not found in available locations!")
+        return
+    
+    # Test specific location
+    result = requester.compute_travel_time(location_name)
+    print(f"\nResult for {location_name}:")
+    print(json.dumps(result, indent=2))
+    return result
+
 def main():
     requester = TravelTimeRequester()
     print("Starting travel time computation for all locations...")
@@ -77,4 +99,5 @@ def main():
     print(f"\nResults saved to {filename}")
 
 if __name__ == "__main__":
-    main()
+    # Test specifically for Lausanne
+    test_specific_location("Lausanne")
