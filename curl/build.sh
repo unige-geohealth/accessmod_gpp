@@ -39,7 +39,7 @@ if [ "$USE_BUILDX" = true ]; then
     -t "$IMAGE" \
     -f "$DOCKERFILE" \
     . \
-    --output type=image,name="$IMAGE",push=false
+    --output type=image,name="$IMAGE",push=true
 
 else
   echo "🐳 Simple local build (no buildx)..."
