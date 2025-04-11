@@ -19,6 +19,7 @@ scenario <- get_arg("--scenario", default = NULL)
 location_path <- "/data/location"
 project_name <- sprintf("project_gpp_%s", location)
 
+browser()
 conf <- amAnalysisReplayParseConf(
   "/data/config/default.json"
 )

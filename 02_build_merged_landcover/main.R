@@ -65,3 +65,5 @@ writeRaster(
   landcover_merged, out_path,
   overwrite = TRUE
 )
+
+print(sprintf("LandCover layer created at %s ",out_path))
