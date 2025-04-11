@@ -9,6 +9,7 @@ if (file_exists(global_cache)) {
 
 source("/helpers/find_inaccessmod_layer.R")
 source("/helpers/get_location.R")
+source("/helpers/patches.R")
 
 # Get location from argument or default
 location_arg <- get_arg("--location")

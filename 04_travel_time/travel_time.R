@@ -11,6 +11,7 @@ source("/helpers/find_inaccessmod_layer.R")
 source("/helpers/get_location.R")
 source("/helpers/pop_vs_traveltime.R")
 source("/helpers/hash.R")
+source("/helpers/patches.R")
 
 location <- get_arg("--location", default = get_location())
 scenario <- get_arg("--scenario", default = NULL)
